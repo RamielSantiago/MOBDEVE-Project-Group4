@@ -446,9 +446,8 @@
         app:layout_constraintHorizontal_bias="0.891"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.785"     />
-    <!--        app:srcCompat="@drawable/discord" -->
-
+        app:layout_constraintVertical_bias="0.785"
+        app:srcCompat="@drawable/discord" />
 
     <ImageView
         android:id="@+id/MessengerIconView"
@@ -469,12 +468,11 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.78"
+        app:layout_constraintHorizontal_bias="0.767"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.919"    />
-
-    <!--        app:srcCompat="@drawable/friends" -->
+        app:layout_constraintVertical_bias="0.919"
+        app:srcCompat="@drawable/users_1" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

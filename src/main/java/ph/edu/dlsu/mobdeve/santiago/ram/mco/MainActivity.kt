@@ -20,12 +20,16 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
         binding.Mic.setOnClickListener{
-            var intent = Intent(this, exercise::class.java)
+            var intent = Intent(this, TTS::class.java)
             startActivity(intent)
         }
         binding.add.setOnClickListener{
             var intent = Intent(this, SetAlarm::class.java)
             startActivity(intent)
+        }
+        binding.ytapi.setOnClickListener{
+            var intent = Intent(this, exercise::class.java)
+            startActivity((intent))
         }
         createNotificationChannel()
     }

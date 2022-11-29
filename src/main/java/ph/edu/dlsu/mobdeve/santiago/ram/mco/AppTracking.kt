@@ -5,7 +5,6 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import ph.edu.dlsu.mobdeve.santiago.ram.mco.databinding.ActivityAppTrackingBinding
 import java.text.SimpleDateFormat
@@ -67,6 +66,10 @@ class AppTracking : AppCompatActivity() {
                 SAs.SnapchatUsage = convertTime(usageStatsList[i].totalTimeInForeground)
                 binding.scTime.text = SAs.SnapchatUsage
             }
+            if(usageStatsList[i].packageName.equals("com.discord")){
+                SAs.DiscordUsage = convertTime(usageStatsList[i].totalTimeInForeground)
+                binding.discordTime.text = SAs.SnapchatUsage
+            }
         }
     }
     private fun convertTime(stat: Long): String {
@@ -74,18 +77,27 @@ class AppTracking : AppCompatActivity() {
         var format: SimpleDateFormat = SimpleDateFormat("mm:ss", Locale.ENGLISH)
         return format.format(date)
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAppTrackingBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.track.setOnClickListener{
-            var intent = Intent(this, AppTracking::class.java)
+        binding.alarms.setOnClickListener{
+            var intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+        binding.add.setOnClickListener{
+            var intent = Intent(this, SetAlarm::class.java)
             startActivity(intent)
         }
         binding.Mic.setOnClickListener{
-            var intent = Intent(this, exercise::class.java)
+            var intent = Intent(this, TTS::class.java)
             startActivity(intent)
+        }
+        binding.ytapi.setOnClickListener{
+            var intent = Intent(this, exercise::class.java)
+            startActivity((intent))
         }
         sp = getSharedPreferences("SAVE_DATA", Context.MODE_PRIVATE)
         editor = sp.edit()
@@ -96,6 +108,7 @@ class AppTracking : AppCompatActivity() {
 
     override fun onPause() {
         super.onPause()
+        showUsage()
         SAs.saveData(sp, editor)
     }
 

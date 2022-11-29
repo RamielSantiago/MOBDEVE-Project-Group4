@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".MainActivity">
+    <TextView
+        android:id="@+id/ttsas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/tts"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <ImageButton
+        android:id="@+id/alarms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintLeft_toRightOf="@+id/ttsas"
+        android:src="@drawable/switchalarm"
+        app:layout_constraintTop_toTopOf="parent"
+        android:scaleType="fitXY"
+        />
+    <ImageButton
+        android:id="@+id/track"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintRight_toLeftOf="@id/users"
+        android:src="@drawable/progress"
+        app:layout_constraintTop_toTopOf="parent"
+        android:scaleType="fitXY"
+        />
+    <ImageButton
+        android:id="@+id/users"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintRight_toLeftOf="@+id/add"
+        android:src="@drawable/users_1"
+        app:layout_constraintTop_toTopOf="parent"
+        android:scaleType="fitXY"
+        />
+    <ImageButton
+        android:id="@+id/add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginRight="10dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:src="@drawable/newalarm"
+        app:layout_constraintTop_toTopOf="parent"
+        android:scaleType="fitXY"
+        />
+    <ImageButton
+        android:id="@+id/ytapi"
+        android:layout_width="73dp"
+        android:layout_height="73dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="24dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/ytlogo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <TextView
+        android:id="@+id/newalarm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="52dp"
+        android:layout_marginTop="48dp"
+        android:text="Alarm Name"
+        android:textColor="@color/white"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ttsas" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/NameInput"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="76dp"
+        android:textColorHint="#FFFFFF"
+        app:boxBackgroundColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.241"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ttsas" />
+
+    <TextView
+        android:id="@+id/timeset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="52dp"
+        android:layout_marginTop="30dp"
+        android:text="Set Time and Date"
+        android:textColor="@color/white"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/NameInput" />
+
+    <Button
+        android:id="@+id/setdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/timeset"
+        android:text="Set Date"
+        />
+
+<!--    <TextView-->
+<!--        android:id="@+id/sample"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="50dp"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintRight_toRightOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/setdate"-->
+<!--        android:textColor="@color/white"/>-->
+</androidx.constraintlayout.widget.ConstraintLayout>

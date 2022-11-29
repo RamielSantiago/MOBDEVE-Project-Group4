@@ -13,4 +13,6 @@
     <string name="day">days</string>
     <string name="month">months</string>
     <string name="year">yrs</string>
+    <string name="discord">Discord</string>
+    <string name="tts">Text-To-Speech Alarm</string>
 </resources>

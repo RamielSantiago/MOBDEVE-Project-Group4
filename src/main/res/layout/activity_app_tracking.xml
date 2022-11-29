@@ -18,13 +18,13 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
     <ImageButton
-        android:id="@+id/track"
+        android:id="@+id/alarms"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
         app:layout_constraintRight_toLeftOf="@id/Mic"
-        android:src="@drawable/progress"
+        android:src="@drawable/switchalarm"
         app:layout_constraintTop_toTopOf="parent"
         android:scaleType="fitXY"
         />
@@ -187,5 +187,47 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tweetTime"/>
 
+    <ImageView
+        android:id="@+id/discordLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/discord"
+        app:layout_constraintTop_toBottomOf="@id/scLogo"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        />
+    <TextView
+        android:id="@+id/discord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:text="@string/discord"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toRightOf="@id/discordLogo"
+        app:layout_constraintTop_toBottomOf="@id/sc"/>
+    <TextView
+        android:id="@+id/discordTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/scTime"/>
+
+    <ImageButton
+        android:id="@+id/ytapi"
+        android:layout_width="73dp"
+        android:layout_height="73dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="24dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/ytlogo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

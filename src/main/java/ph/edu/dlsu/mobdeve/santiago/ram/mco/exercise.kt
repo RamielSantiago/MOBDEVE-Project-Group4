@@ -43,17 +43,23 @@ class exercise : YouTubeBaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        requestWindowFeature(Window.FEATURE_NO_TITLE)
         binding = ActivityExerciseBinding.inflate(layoutInflater)
         setContentView(binding.root)
         ytPlayerView = binding.player
-        var ytPlayer : YouTubePlayer?
         binding.track.setOnClickListener{
             var intent = Intent(this, AppTracking::class.java)
             startActivity(intent)
         }
         binding.Mic.setOnClickListener{
-            var intent = Intent(this, exercise::class.java)
+            var intent = Intent(this, TTS::class.java)
+            startActivity(intent)
+        }
+        binding.alarms.setOnClickListener{
+            var intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+        binding.add.setOnClickListener{
+            var intent = Intent(this, SetAlarm::class.java)
             startActivity(intent)
         }
         binding.submit.setOnClickListener{
@@ -79,6 +85,7 @@ class exercise : YouTubeBaseActivity() {
                         Toast.makeText(applicationContext, "Video could not be played.", Toast.LENGTH_SHORT).show()
                     }
                 }
+                ytPlayerView.initialize(API_KEY, ytListener)
             }
         }
     }

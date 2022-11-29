@@ -17,16 +17,7 @@
         android:textColor="@color/white"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-    <ImageButton
-        android:id="@+id/Switch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        app:layout_constraintLeft_toRightOf="@+id/work"
-        android:src="@drawable/switchalarm"
-        app:layout_constraintTop_toTopOf="parent"
-        android:scaleType="fitXY"
-        />
+
     <ImageButton
         android:id="@+id/track"
         android:layout_width="wrap_content"
@@ -69,5 +60,15 @@
         app:layout_constraintTop_toTopOf="parent"
         android:scaleType="fitXY"
         />
+    <ImageButton
+        android:id="@+id/ytapi"
+        android:layout_width="73dp"
+        android:layout_height="73dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="24dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/ytlogo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
