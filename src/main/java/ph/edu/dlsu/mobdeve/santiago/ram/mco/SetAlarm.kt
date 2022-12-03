@@ -16,7 +16,7 @@ class SetAlarm : AppCompatActivity() {
     private lateinit var binding: ActivitySetAlarmBinding
     private lateinit var picker : MaterialTimePicker
     private lateinit var calendar: Calendar
-    private lateinit var alarmManager: AlarmManager
+    private lateinit var  alarmManager: AlarmManager
     private lateinit var pendingIntent: PendingIntent
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,14 +30,18 @@ class SetAlarm : AppCompatActivity() {
 
         binding.SetAlarmButton.setOnClickListener {
             setAlarm()
+
         }
 
         binding.SetTime.setOnClickListener {
             showTimePicker()
         }
+
+        binding
+
     }
 
-    fun setAlarm() {
+    private fun setAlarm() {
 
         alarmManager = getSystemService(ALARM_SERVICE) as AlarmManager
         val intent = Intent(this, AlarmReceiver::class.java)
@@ -50,6 +54,7 @@ class SetAlarm : AppCompatActivity() {
         )
 
         Toast.makeText(this, "Alarm set successfully", Toast.LENGTH_SHORT).show()
+
     }
 
     private fun showTimePicker() {

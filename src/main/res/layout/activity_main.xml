@@ -29,16 +29,17 @@
         app:layout_constraintTop_toTopOf="parent"
         android:scaleType="fitXY"
         />
+
     <ImageButton
         android:id="@+id/Mic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        app:layout_constraintRight_toLeftOf="@id/users"
-        android:src="@drawable/microphone"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
         android:scaleType="fitXY"
-        />
+        android:src="@drawable/microphone"
+        app:layout_constraintRight_toLeftOf="@id/users"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageButton
         android:id="@+id/users"
         android:layout_width="wrap_content"
@@ -49,25 +50,50 @@
         app:layout_constraintTop_toTopOf="parent"
         android:scaleType="fitXY"
         />
+
+    <ImageButton
+        android:id="@+id/ytapi"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginLeft="172dp"
+        android:layout_marginBottom="52dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/ytlogo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
     <ImageButton
         android:id="@+id/add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="148dp"
         android:layout_marginTop="12dp"
         android:layout_marginRight="10dp"
-        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginBottom="28dp"
+        android:scaleType="fitXY"
         android:src="@drawable/newalarm"
-        app:layout_constraintTop_toTopOf="parent"
-        android:scaleType="fitXY"
-        />
-    <ImageButton
-        android:id="@+id/ytapi"
-        android:layout_width="73dp"
-        android:layout_height="73dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginBottom="24dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/ytlogo"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/tologin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="268dp"
+        android:layout_marginBottom="60dp"
+        android:text="Login"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <Button
+        android:id="@+id/toregister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginBottom="60dp"
+        android:text="Register"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent" />
 

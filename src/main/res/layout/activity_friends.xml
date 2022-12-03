@@ -5,24 +5,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".MainActivity">
+    tools:context=".Friends">
+
     <TextView
-        android:id="@+id/ttsas"
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/tts"
-        android:textSize="20sp"
+        android:layout_marginTop="12dp"
+        android:text="Friends"
         android:textColor="@color/white"
+        android:textSize="30sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <ImageButton
         android:id="@+id/alarms"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
-        app:layout_constraintLeft_toRightOf="@+id/ttsas"
+        app:layout_constraintRight_toLeftOf="@id/track"
         android:src="@drawable/switchalarm"
         app:layout_constraintTop_toTopOf="parent"
         android:scaleType="fitXY"
@@ -33,18 +36,18 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
-        app:layout_constraintRight_toLeftOf="@id/users"
+        app:layout_constraintRight_toLeftOf="@id/Mic"
         android:src="@drawable/progress"
         app:layout_constraintTop_toTopOf="parent"
         android:scaleType="fitXY"
         />
     <ImageButton
-        android:id="@+id/users"
+        android:id="@+id/Mic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        app:layout_constraintRight_toLeftOf="@+id/add"
-        android:src="@drawable/users_1"
+        app:layout_constraintRight_toLeftOf="@id/add"
+        android:src="@drawable/microphone"
         app:layout_constraintTop_toTopOf="parent"
         android:scaleType="fitXY"
         />
@@ -59,62 +62,78 @@
         app:layout_constraintTop_toTopOf="parent"
         android:scaleType="fitXY"
         />
+
     <ImageButton
         android:id="@+id/ytapi"
         android:layout_width="65dp"
         android:layout_height="65dp"
-        android:layout_marginLeft="172dp"
-        android:layout_marginBottom="44dp"
+        android:layout_marginLeft="92dp"
+        android:layout_marginBottom="64dp"
         android:scaleType="fitXY"
         android:src="@drawable/ytlogo"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <ImageButton
+        android:id="@+id/friendlist"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginLeft="248dp"
+        android:layout_marginTop="156dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/list"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rtext" />
 
     <TextView
-        android:id="@+id/newalarm"
+        android:id="@+id/addfriend"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="52dp"
-        android:layout_marginTop="116dp"
-        android:text="Alarm Name"
-        android:textSize="20dp"
+        android:layout_marginLeft="72dp"
+        android:text="Add Friend"
         android:textColor="@color/white"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ttsas" />
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        app:layout_constraintVertical_bias="0.153" />
 
     <EditText
-        android:id="@+id/NameInput"
-        android:layout_width="150dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="164dp"
-        android:textColor="@color/white"
-        android:textColorHint="#FFFFFF"
-        app:boxBackgroundColor="#000000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.425"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ttsas" />
+        android:id="@+id/atext"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="104dp"
+        android:layout_marginTop="15dp"
+        android:textSize="15sp"
+        android:textColor="@color/ginger"
+        android:hint="Username"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addfriend" />
 
     <TextView
-        android:id="@+id/timeset"
+        android:id="@+id/removefriend"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="52dp"
-        android:layout_marginTop="30dp"
-        android:text="Set Time and Date"
-        android:textSize="20dp"
+        android:layout_marginLeft="72dp"
+        android:layout_marginTop="40dp"
+        android:text="Delete Friend"
         android:textColor="@color/white"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/NameInput" />
+        app:layout_constraintTop_toBottomOf="@+id/addfriend"
+        app:layout_constraintVertical_bias="0.26" />
 
-    <Button
-        android:id="@+id/setdate"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/rtext"
+        android:layout_width="210dp"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="112dp"
         android:layout_marginTop="20dp"
+        android:hint="Username"
+        android:textColor="@color/ginger"
+        android:textSize="15sp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/timeset"
-        android:text="Set Alarm"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/removefriend" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -95,6 +95,10 @@ class AppTracking : AppCompatActivity() {
             var intent = Intent(this, TTS::class.java)
             startActivity(intent)
         }
+        binding.users.setOnClickListener{
+            var intent = Intent(this, Friends::class.java)
+            startActivity((intent))
+        }
         binding.ytapi.setOnClickListener{
             var intent = Intent(this, exercise::class.java)
             startActivity((intent))

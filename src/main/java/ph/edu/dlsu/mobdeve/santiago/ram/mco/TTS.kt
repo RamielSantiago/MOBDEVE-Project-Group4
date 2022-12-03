@@ -1,21 +1,16 @@
 package ph.edu.dlsu.mobdeve.santiago.ram.mco
 
-import android.app.AlarmManager
-import android.app.DatePickerDialog
-import android.app.PendingIntent
-import android.app.TimePickerDialog
-import android.content.BroadcastReceiver
+import android.app.*
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.util.Log
 import android.widget.DatePicker
 import android.widget.TimePicker
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import ph.edu.dlsu.mobdeve.santiago.ram.mco.databinding.ActivityTtsBinding
-import java.text.SimpleDateFormat
 import java.util.*
 
 
@@ -23,23 +18,17 @@ class TTS : AppCompatActivity(), DatePickerDialog.OnDateSetListener, TimePickerD
     private lateinit var binding: ActivityTtsBinding
     private lateinit var tts: TextToSpeech
     private lateinit var cal : Calendar
-
-    var day = 0
-    var month = 0
-    var year = 0
-    var hour = 0
-    var minutes = 0
-
-    var days = 0
+    var yr = 0
     var mth = 0
-    var yrs = 0
-    var hrs = 0
-    var mins = 0
+    var day = 0
+    var hr = 0
+    var min = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityTtsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        tts = TextToSpeech(this, this)
         binding.alarms.setOnClickListener{
             var intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
@@ -52,69 +41,59 @@ class TTS : AppCompatActivity(), DatePickerDialog.OnDateSetListener, TimePickerD
             var intent = Intent(this, AppTracking::class.java)
             startActivity(intent)
         }
+        binding.users.setOnClickListener{
+            var intent = Intent(this, Friends::class.java)
+            startActivity((intent))
+        }
         binding.ytapi.setOnClickListener{
             var intent = Intent(this, exercise::class.java)
             startActivity(intent)
         }
         binding.setdate.setOnClickListener(){
-            getDateTimeCalendar()
-            DatePickerDialog(this, this, year, month, day).show()
+            cal = Calendar.getInstance()
+            DatePickerDialog(this, this, cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH)).show()
         }
-        tts = TextToSpeech(this, this)
-    }
-
-    private fun getDateTimeCalendar(){
-        cal = Calendar.getInstance()
-        day = cal.get(Calendar.DAY_OF_MONTH)
-        month = cal.get(Calendar.MONTH)
-        year = cal.get(Calendar.YEAR)
-        hour = cal.get(Calendar.HOUR)
-        minutes = cal.get(Calendar.DAY_OF_MONTH)
     }
 
     override fun onDateSet(p0: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
-        days = dayOfMonth
+        yr = year
         mth = month
-        yrs = year
-
-        getDateTimeCalendar()
-        TimePickerDialog(this, this, hour, minutes, true).show()
+        day = dayOfMonth
+        TimePickerDialog(this, this, cal.get(Calendar.HOUR_OF_DAY), cal.get(Calendar.MINUTE), true).show()
     }
 
     override fun onTimeSet(p0: TimePicker?, hourOfDay: Int, minute: Int) {
-        hrs = hourOfDay
-        mins = minute
-
-        var newcal : Calendar = Calendar.getInstance()
-//        newcal = Calendar.getInstance()
-        newcal.set(yrs, mth, days, hrs, mins)
-        if(newcal.timeInMillis - cal.timeInMillis > 0){
-            setTTSAlarm(newcal.timeInMillis)
+        hr = hourOfDay
+        min = minute
+        var currcal : Calendar = Calendar.getInstance()
+        cal.set(yr, mth, day, hr, min, 0)
+        if(cal.timeInMillis - currcal.timeInMillis > 0){
+            setTTSAlarm()
         } else {
             Toast.makeText(this, "Invalid Date or Time", Toast.LENGTH_SHORT).show()
         }
     }
 
-    private fun setTTSAlarm(inputTime: Long) {
-        val alarmManager = getSystemService(ALARM_SERVICE) as AlarmManager
-        val intent = Intent(this, AlarmReceiver::class.java)
-        val pendingIntent = PendingIntent.getBroadcast(this, 0, intent, 0)
-
-        alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, inputTime, pendingIntent)
-        Toast.makeText(this, "Alarm set successfully", Toast.LENGTH_SHORT).show()
-
+    private fun setTTSAlarm() {
         var ttsmessage = ""
-        ttsmessage = if(hrs > 12){
-            "Alarm set for $hrs $mins pm"
+        ttsmessage = if(hr > 12){
+            "Alarm set for $hr $min pm"
         } else {
-            "Alarm set for $hrs $mins am"
+            "Alarm set for $hr $min am"
         }
-        tts!!.speak(ttsmessage, TextToSpeech.QUEUE_ADD, null, "")
+        tts!!.speak(ttsmessage, TextToSpeech.QUEUE_FLUSH, null, "")
+
+//        val intent = Intent(baseContext, AlarmReceiver::class.java)
+//        val pendingIntent = PendingIntent.getBroadcast(baseContext, 1, intent, 0)
+//        val alarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
+//
+
+        Toast.makeText(this, "Alarm set successfully", Toast.LENGTH_SHORT).show()
     }
 
     override fun onInit(p0: Int) {
         if(p0 == TextToSpeech.SUCCESS){
-            val result = tts.setLanguage(Locale.UK)
+            val result = tts.setLanguage(Locale.ENGLISH)
 
             if(result == TextToSpeech.LANG_MISSING_DATA){
                 Toast.makeText(this, "Missing Data", Toast.LENGTH_SHORT).show()

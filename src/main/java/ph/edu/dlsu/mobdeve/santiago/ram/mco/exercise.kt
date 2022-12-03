@@ -58,6 +58,10 @@ class exercise : YouTubeBaseActivity() {
             var intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
+        binding.users.setOnClickListener{
+            var intent = Intent(this, Friends::class.java)
+            startActivity((intent))
+        }
         binding.add.setOnClickListener{
             var intent = Intent(this, SetAlarm::class.java)
             startActivity(intent)

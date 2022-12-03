@@ -27,9 +27,21 @@ class MainActivity : AppCompatActivity() {
             var intent = Intent(this, SetAlarm::class.java)
             startActivity(intent)
         }
+        binding.users.setOnClickListener{
+            var intent = Intent(this, Friends::class.java)
+            startActivity(intent)
+        }
         binding.ytapi.setOnClickListener{
             var intent = Intent(this, exercise::class.java)
-            startActivity((intent))
+            startActivity(intent)
+        }
+        binding.tologin.setOnClickListener{
+            var intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+        }
+        binding.toregister.setOnClickListener{
+            var intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
         }
         createNotificationChannel()
     }
@@ -48,6 +60,5 @@ class MainActivity : AppCompatActivity() {
             )
             notificationManager.createNotificationChannel((channel))
         }
-
     }
 }
