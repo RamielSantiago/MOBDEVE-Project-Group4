@@ -223,11 +223,11 @@
         android:id="@+id/ytapi"
         android:layout_width="65dp"
         android:layout_height="65dp"
-        android:layout_marginLeft="172dp"
-        android:layout_marginBottom="44dp"
+        android:layout_marginBottom="64dp"
         android:scaleType="fitXY"
         android:src="@drawable/ytlogo"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
